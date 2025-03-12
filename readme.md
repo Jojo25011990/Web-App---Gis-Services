@@ -32,10 +32,12 @@
 ## Mobile Screens
 
 - Main
+
   ![](./screens/Screenshot%20main-mobile.png)
 
-- Why me  
-   ![](./screens/Screenshot%20why__me-mobile.png)
+- Why me
+
+  ![](./screens/Screenshot%20why__me-mobile.png)
 
 - About me
 
