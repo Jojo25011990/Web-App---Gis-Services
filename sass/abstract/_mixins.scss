@@ -1,0 +1,195 @@
+@use './variables' as *;
+
+// *** Font Settings ***
+@mixin font-settings($size, $weight: null, $line-height: null) {
+  font-size: size($size);
+  font-weight: $weight;
+  line-height: $line-height;
+}
+
+// *** Flexbox Settings ****
+@mixin flex-settings(
+  $justify: center,
+  $align: center,
+  $direction: null,
+  $gap: null
+) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+
+  @if $gap {
+    gap: $gap;
+  }
+}
+
+// *** Dimensions Settings ***
+@mixin dimension-settings(
+  $width: null,
+  $height: null,
+  $min-height: null,
+  $max-width: null
+) {
+  @if $width {
+    width: $width;
+  }
+  @if $height {
+    height: $height;
+  }
+  @if $min-height {
+    min-height: $min-height;
+  }
+  @if $max-width {
+    max-width: $max-width;
+  }
+}
+
+//  *** Why Me & About Me Big Title ***
+%big-title {
+  position: absolute;
+  top: 18rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+
+  background: linear-gradient(#414247, transparent 111%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  opacity: 0.5;
+
+  font-family: $font-family-tertiary;
+  text: {
+    align: center;
+    transform: uppercase;
+  }
+
+  @include font-settings(ultra, normal);
+  @include dimension-settings(100%);
+}
+
+// *** Btn Styles ***
+@mixin globalBtnStyles() {
+  &:link,
+  &:visited {
+    position: relative;
+    display: inline-block;
+
+    outline: 0.2rem solid $color-red-primary;
+
+    color: $color-red-primary;
+
+    transition: color 0.25s, background-color 0.25s;
+
+    text-align: center;
+
+    @include dimension-settings(21rem, 6rem);
+    @include font-settings(large, 700, 6rem);
+  }
+
+  span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    transform: scaleX(0);
+    transform-origin: top;
+
+    transition: transform 0.25s;
+
+    background-color: $color-red-primary;
+
+    @include dimension-settings(100%, 25%);
+  }
+
+  span:nth-of-type(2) {
+    top: 25%;
+    transition-delay: 0.15s;
+  }
+
+  span:nth-of-type(3) {
+    top: 50%;
+    transition-delay: 0.25s;
+  }
+
+  span:nth-of-type(4) {
+    top: 75%;
+    transition-delay: 0.35s;
+  }
+
+  &:hover,
+  &:active {
+    color: $color-white-light;
+  }
+
+  &:hover span,
+  &:active span {
+    transform: scaleX(1);
+  }
+}
+
+// *** Mixin Reponsive for sections ***
+
+@mixin respon-design($breakpoint) {
+  @if $breakpoint == desktop-medium {
+    @media (max-width: 1275px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desktop {
+    @media (max-width: 1050px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tablet-large {
+    @media (max-width: 960px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tablet-medium {
+    @media (max-width: 880px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tablet {
+    @media (max-width: 780px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tablet-small {
+    @media (max-width: 660px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobile-ex-large {
+    @media (max-width: 610px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobile-large {
+    @media (max-width: 510px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobile {
+    @media (max-width: 490px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobile-small {
+    @media (max-width: 420px) {
+      @content;
+    }
+  }
+}

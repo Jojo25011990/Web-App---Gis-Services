@@ -1,0 +1,554 @@
+@use '../abstract' as *;
+
+.highlight {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+
+  background-color: $color-black;
+
+  display: none;
+
+  opacity: 0;
+  visibility: hidden;
+
+  @include dimension-settings(100%);
+
+  &.active {
+    @include flex-settings(center, null);
+    @include dimension-settings(100%, null, 110vh);
+
+    z-index: 9999;
+
+    opacity: 1;
+    visibility: visible;
+    overflow: hidden;
+
+    @include respon-design(mobile) {
+      @include dimension-settings(100%, auto);
+
+      overflow: hidden;
+      padding-top: 0;
+      margin-top: 0;
+    }
+  }
+
+  &__container {
+    @include dimension-settings(111rem, null, 100vh);
+    @include flex-settings(null, center, column, 5rem);
+
+    // padding-top: 15rem;
+
+    position: relative;
+    margin-top: 10rem;
+
+    // *** 780px ***
+    @include respon-design(tablet-medium) {
+      @include dimension-settings(100%, auto);
+
+      overflow: hidden;
+      padding-top: 20rem;
+    }
+
+    // *** 780px ***
+    // @include respon-design(tablet) {
+    //   @include dimension-settings(100%, auto);
+
+    //   overflow: hidden;
+    //   //   margin-top: 20rem;
+    //   padding-top: 20rem;
+    // }
+
+    // @include respon-design(mobile) {
+    //   @include dimension-settings(100%, auto);
+
+    //   overflow: hidden;
+    //   margin-top: 10rem;
+    // }
+  }
+
+  //   *** eyes ***
+  &__eyes-box {
+    position: relative;
+
+    @include dimension-settings(100%, 28rem, null, 70rem);
+    @include flex-settings(space-between, null);
+
+    // *** 780px ***
+    @include respon-design(tablet) {
+      @include dimension-settings(60rem, 24rem);
+    }
+
+    // *** 660px ***
+    @include respon-design(tablet-small) {
+      @include dimension-settings(37.5rem, 24rem);
+
+      position: relative;
+      top: 11rem;
+    }
+
+    // *** 490px ***
+    @include respon-design(mobile) {
+      @include dimension-settings(32.6rem, 24rem);
+
+      position: relative;
+    }
+
+    &-helper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 5;
+
+      background-color: transparent;
+
+      @include dimension-settings(28rem, 28rem);
+
+      // *** 780px ***
+      @include respon-design(tablet) {
+        @include dimension-settings(24rem, 24rem);
+      }
+
+      // *** 660px ***
+      @include respon-design(tablet-small) {
+        @include dimension-settings(15rem, 15rem);
+      }
+
+      // *** 490px ***
+      @include respon-design(mobile) {
+        @include dimension-settings(13rem, 13rem);
+      }
+    }
+
+    &-helper-01 {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 5;
+
+      background-color: transparent;
+
+      @include dimension-settings(28rem, 28rem);
+
+      // *** 780px ***
+      @include respon-design(tablet) {
+        @include dimension-settings(24rem, 24rem);
+      }
+
+      // *** 660px ***
+      @include respon-design(tablet-small) {
+        @include dimension-settings(15rem, 15rem);
+      }
+
+      // *** 490px ***
+      @include respon-design(mobile) {
+        @include dimension-settings(13rem, 13rem);
+      }
+    }
+  }
+
+  &__eye {
+    position: relative;
+    transform: rotate(-45deg);
+
+    background-color: $color-white;
+    border-radius: 0 70% 0 70%;
+
+    @include dimension-settings(28rem, 28rem);
+
+    // *** 780px ***
+    @include respon-design(tablet) {
+      @include dimension-settings(24rem, 24rem);
+    }
+
+    // *** 660px ***
+    @include respon-design(tablet-small) {
+      @include dimension-settings(15rem, 15rem);
+    }
+
+    // *** 490px ***
+    @include respon-design(mobile) {
+      @include dimension-settings(13rem, 13rem);
+    }
+  }
+
+  &__eye-pupil {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background: $color-black;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0.7rem $color-eye-pupil;
+
+    @include dimension-settings(35%, 35%);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 35%;
+      right: 31%;
+
+      border-radius: 50%;
+      background: $color-white;
+      box-shadow: 0 0 0.2rem $color-white;
+
+      filter: blur(0.05rem);
+
+      @include dimension-settings(15%, 15%);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 9%;
+      right: 9%;
+
+      border-radius: 50%;
+      background: $color-white;
+      box-shadow: 0 0 0.2rem $color-white;
+
+      filter: blur(0.05rem);
+
+      @include dimension-settings(30%, 30%);
+    }
+  }
+  //   *** end of eyes ***
+
+  //   *** projector ***
+  &__projector {
+    position: relative;
+    z-index: 5;
+
+    align-self: flex-start;
+
+    margin-top: 2rem;
+    @include dimension-settings(20rem, 19rem);
+
+    // *** 960px ***
+    @include respon-design(tablet-large) {
+      scale: 0.85;
+    }
+
+    // *** 780px ***
+    @include respon-design(tablet) {
+      scale: 0.75;
+      left: -1.9rem;
+    }
+
+    // *** 510px ***
+    @include respon-design(mobile-large) {
+      display: none;
+    }
+
+    &-body {
+      position: relative;
+
+      background: linear-gradient($color-black-dark, $color-black-very-dark);
+
+      border-radius: 70% 0 0 70%;
+      box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+
+      @include dimension-settings(20rem, 14rem);
+
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: -1rem;
+
+        border-radius: 50%;
+
+        background-color: $color-black-dark;
+        @include dimension-settings(2rem, 100%);
+      }
+    }
+
+    &-bulb {
+      position: absolute;
+      top: 5.5rem;
+      right: -1.3rem;
+      transform: translateX(-50%);
+
+      background-color: $color-white;
+      border-radius: 0 50% 50% 0;
+      box-shadow: 0 0.5rem 2rem rgba($color-white, 0.3);
+
+      @include dimension-settings(1.5rem, 3rem);
+    }
+
+    &-light {
+      position: absolute;
+      top: -3.4rem;
+      left: 19.5rem;
+
+      background: linear-gradient(
+        to right,
+        rgba($color-white, 0.3),
+        rgba($color-white, 0.275),
+        rgba($color-white, 0.255),
+        rgba($color-white, 0.225),
+        rgba($color-white, 0.2),
+        rgba($color-white, 0.2),
+        rgba($color-white, 0.2),
+        rgba($color-white, 0.175),
+        transparent,
+        transparent
+      );
+      border-radius: 30% 0 0 30%;
+
+      opacity: 0.3;
+      filter: blur(0.5rem);
+
+      animation: light-blik 1s linear 0.5s infinite;
+
+      @include dimension-settings(90rem, 21rem);
+    }
+
+    &-leg {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      z-index: -1;
+
+      background: linear-gradient($color-black-dark, $color-black-very-dark);
+
+      box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+
+      @include dimension-settings(0.4rem, 6rem);
+    }
+
+    &-leg-left {
+      transform: translateX(-50%) rotate(45deg);
+    }
+
+    &-leg-right {
+      left: 70%;
+      transform: translateX(-70%) rotate(-45deg);
+    }
+  }
+
+  // *** Lamp ***
+  &__lamp {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 5;
+
+    align-self: flex-start;
+
+    scale: 1.2;
+
+    display: none;
+
+    @include dimension-settings(20rem, 14rem);
+
+    // *** 510px ***
+    @include respon-design(mobile-large) {
+      display: block;
+    }
+
+    &-base {
+      position: absolute;
+      bottom: 0;
+      left: 25%;
+      z-index: 2;
+
+      background: linear-gradient($color-black-dark, $color-black-very-dark);
+      border-radius: 70% 70% 0 0;
+      box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+
+      @include dimension-settings(25%, 25%);
+    }
+
+    &-body {
+      position: absolute;
+      left: 35.3%;
+      top: 15%;
+      z-index: -1;
+
+      background: linear-gradient($color-black-dark, $color-black-very-dark);
+
+      @include dimension-settings(0.5rem, 70%);
+
+      &-helper {
+        position: absolute;
+        top: -17%;
+        left: -0.04rem;
+        z-index: 1;
+
+        border: 0.6rem solid $color-black-dark;
+        border-bottom: 0;
+        border-radius: 5.5rem 5.5rem 0 0;
+
+        @include dimension-settings(4rem, 2rem);
+      }
+    }
+
+    &-head {
+      position: absolute;
+      top: 1.3rem;
+      left: 46.3%;
+      z-index: 2;
+      transform: rotate(-27deg);
+
+      background: linear-gradient($color-black-dark, $color-black-very-dark);
+
+      box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+      border-radius: 70% 70% 0 0;
+
+      @include dimension-settings(18%, 18%);
+
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: -0.22rem;
+        right: 0;
+        z-index: -1;
+
+        border-radius: 50%;
+        background-color: $color-black-dark;
+
+        @include dimension-settings(100%, 0.7rem);
+      }
+    }
+
+    &-bulb {
+      position: absolute;
+      top: 3.2rem;
+      left: 10.3rem;
+      z-index: 2;
+      transform: translateX(87%) rotate(-27deg);
+
+      background-color: $color-white;
+      border-radius: 0 0 50% 50%;
+      box-shadow: 0 0.5rem 2rem rgba($color-white, 0.3);
+
+      @include dimension-settings(0.9rem, 0.6rem);
+    }
+
+    &-light {
+      position: absolute;
+      top: 6.8rem;
+      left: 5.6rem;
+      transform: rotate(65.4deg);
+
+      background: linear-gradient(
+        to right,
+        rgba($color-white, 0.3),
+        rgba($color-white, 0.275),
+        rgba($color-white, 0.255),
+        rgba($color-white, 0.225),
+        rgba($color-white, 0.2),
+        rgba($color-white, 0.2),
+        rgba($color-white, 0.2),
+        rgba($color-white, 0.175),
+        transparent,
+        transparent
+      );
+      border-radius: 50% 0 0 50%;
+
+      opacity: 0.3;
+      filter: blur(0.5rem);
+
+      animation: light-blik 1s linear 0.5s infinite;
+
+      @include dimension-settings(20rem, 10rem);
+    }
+  }
+
+  // *** text ***
+  &__text {
+    color: $color-white-light;
+
+    @include font-settings(large);
+    @include dimension-settings(100%, 3.5rem, null, 93.7rem);
+
+    // *** 960px ***
+    @include respon-design(tablet-large) {
+      @include font-settings(medium);
+      @include dimension-settings(79.7rem);
+    }
+
+    // *** 780px ***
+    @include respon-design(tablet) {
+      @include font-settings(s-medium);
+      @include dimension-settings(62.7rem);
+    }
+
+    // *** 660px ***
+    @include respon-design(tablet-small) {
+      //  *** I had to set this font like this because it fits best here, and none of the other values from the map work as I intended. ***
+
+      font-size: 1.65rem;
+      @include dimension-settings(51.5rem);
+    }
+
+    // *** 490px ***
+    @include respon-design(mobile) {
+      //   font-size: 1.2rem;
+      //   @include dimension-settings(37.5rem);
+
+      @include font-settings(xs-small);
+      @include dimension-settings(39.1rem);
+    }
+  }
+
+  // *** title ***
+  &__title {
+    position: relative;
+    bottom: 19rem;
+    z-index: 15;
+
+    color: $color-projector-title;
+    background: linear-gradient($color-projector-title, transparent 111%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    opacity: 0.5;
+
+    text-transform: uppercase;
+    font-family: $font-family-tertiary;
+    @include font-settings(x-large);
+
+    // *** 780px ***
+    @include respon-design(tablet) {
+      bottom: 18rem;
+
+      //  *** I had to set this font like this because it fits best here, and none of the other values from the map work as I intended. ***
+      font-size: 3.7rem;
+    }
+
+    // *** 660px ***
+    @include respon-design(tablet-small) {
+      left: 5rem;
+    }
+
+    // *** 510px ***
+    @include respon-design(mobile-large) {
+      display: none;
+    }
+  }
+
+  // *** Lamp Title ***
+  &__title-lamp {
+    @extend .highlight__title;
+
+    bottom: 8rem;
+
+    display: none;
+
+    // *** 510px ***
+    @include respon-design(mobile-large) {
+      display: block;
+      @include font-settings(x-large);
+    }
+  }
+
+  // *** hightlight btn back ***
+  &__back {
+    @include globalBtnStyles;
+  }
+}

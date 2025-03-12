@@ -1,0 +1,220 @@
+@use '../abstract' as *;
+@use './whyMe' as *;
+
+.about__me {
+  @extend .why__me;
+
+  // *** 780px ***
+  @include respon-design(tablet) {
+    margin-top: 21rem;
+  }
+
+  //   *** 660px ***
+  @include respon-design(mobile-ex-large) {
+    margin-top: 5rem;
+  }
+
+  &.active {
+    z-index: 99;
+    @include flex-settings($direction: column, $gap: 5rem);
+  }
+
+  // *** about me box ***
+  &-box {
+    position: relative;
+
+    @include flex-settings($gap: 10rem);
+
+    // *** 780px ***
+    @include respon-design(tablet) {
+      @include flex-settings($gap: 5rem);
+    }
+
+    // *** 610px ***
+    @include respon-design(mobile-ex-large) {
+      @include flex-settings($direction: column, $gap: 5rem);
+    }
+  }
+
+  //   ***  Author Jozef Kudrna ***
+  &-author {
+    position: relative;
+
+    box-shadow: 0.1rem 0.1rem 1rem $color-black-dark;
+
+    clip-path: circle(0% at 50% 50%);
+
+    animation: clip-path-animation 1s linear 2s forwards;
+
+    @include dimension-settings(35rem, 45rem);
+
+    // *** 780px ***
+    @include respon-design(tablet) {
+      @include dimension-settings(30rem, 40rem);
+    }
+
+    // *** 610px ***
+    @include respon-design(mobile-ex-large) {
+      order: 2;
+    }
+  }
+
+  //   *** Name ***
+  &-name {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    color: $color-white;
+
+    display: inline-block;
+
+    text-align: left;
+    @include font-settings(large, 700);
+    @include dimension-settings(100%, null, null, 18rem);
+  }
+
+  // *** Img Jojo ***
+  &-jojo {
+    object-fit: cover;
+
+    @include dimension-settings(100%, 100%);
+  }
+
+  // *** info ***
+  &-info {
+    position: relative;
+
+    color: $color-white-light;
+
+    @include font-settings(large);
+
+    // *** 780px ***
+    @include respon-design(tablet) {
+      @include font-settings(medium);
+    }
+
+    // *** 610px ***
+    @include respon-design(mobile-ex-large) {
+      @include font-settings(s-medium);
+    }
+
+    // *** 490px ***
+    @include respon-design(mobile) {
+      @include font-settings(small);
+    }
+
+    // *** 420px ***
+    @include respon-design(mobile-small) {
+      @include font-settings(s-small);
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      background-color: $color-black-dark;
+
+      animation: info-text-anim 3.5s linear 3s forwards;
+
+      @include dimension-settings(120%, 110%);
+    }
+  }
+
+  // *** about me btn back ***
+  &-back {
+    @include globalBtnStyles;
+    margin-bottom: 1rem;
+  }
+
+  //   *** title **
+  &-title {
+    @extend .why__me-title;
+  }
+}
+
+// *** paper ***
+.paper {
+  position: relative;
+
+  background-color: $color-white;
+  box-shadow: 0 0 0.5rem rgba($color-black, 0.3);
+
+  clip-path: circle(0% at 50% 50%);
+
+  animation: clip-path-animation 1s linear 1s forwards;
+
+  @include dimension-settings(35rem, 45rem);
+
+  // *** 780px ***
+  @include respon-design(tablet) {
+    @include dimension-settings(30rem, 40rem);
+  }
+
+  &__pencil {
+    position: absolute;
+    top: -5%;
+
+    z-index: 5;
+    transform: rotateY(160deg);
+    transform-origin: center;
+
+    color: $color-red-primary;
+
+    @include dimension-settings(4rem, 4rem);
+    @include font-settings(x-large);
+  }
+
+  //   *** horizontal ***
+  &__horizontal {
+    background-color: $color-white;
+
+    @include dimension-settings(100%, 91%);
+    @include flex-settings(space-between, null, column);
+
+    &-line {
+      position: relative;
+
+      border-bottom: 0.1rem solid $color-gray-light;
+    }
+
+    &-description {
+      position: absolute;
+      top: 0.5rem;
+      top: 1rem;
+
+      text-align: center;
+      @include font-settings(medium, 500);
+      @include dimension-settings(100%);
+
+      &--author {
+        text-align: left;
+        margin-left: 28%;
+        white-space: nowrap;
+      }
+    }
+  }
+  //   *** end of horizontal ***
+
+  //   *** vertical ***
+  &__vertical {
+    position: absolute;
+    top: 0;
+    right: 0.5rem;
+
+    background-color: transparent;
+
+    @include dimension-settings(5%, 100%);
+    @include flex-settings($align: null);
+
+    &-line {
+      border-left: 0.2rem solid $color-gray-light;
+    }
+  }
+  //   *** end of vertical ***
+}
+
+// *** end of paper ***

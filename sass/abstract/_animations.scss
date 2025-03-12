@@ -1,0 +1,150 @@
+// *** Envelope HeartBeat Animation ***
+
+@keyframes heartbeat {
+  0% {
+    transform: translate(-50%, -50%) rotate(45deg) scale(1);
+  }
+
+  25% {
+    transform: translate(-50%, -50%) rotate(45deg) scale(1);
+  }
+
+  30% {
+    transform: translate(-50%, -50%) rotate(45deg) scale(1.4);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) rotate(45deg) scale(1.2);
+  }
+
+  70% {
+    transform: translate(-50%, -50%) rotate(45deg) scale(1.4);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(45deg) scale(1);
+  }
+}
+
+// *** Paper moveUp Animation ***
+
+@keyframes moveUp {
+  to {
+    top: -8rem;
+  }
+}
+
+// *** Why-me text Animation ***
+@keyframes why-me {
+  0% {
+    opacity: 1;
+    visibility: visible;
+    top: -1.5rem;
+    left: -2rem;
+  }
+  10% {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+    left: 0;
+  }
+
+  40% {
+    clip-path: circle(1% at 2% 3%);
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+    left: 0;
+  }
+
+  100% {
+    clip-path: circle(138.7% at 2% 1%);
+    opacity: 1;
+    visibility: visible;
+    left: 0;
+    left: 0;
+  }
+}
+
+// *** Animate-stroke svg path Animation ***
+
+@keyframes animate-stroke {
+  from {
+    stroke-dashoffset: 2000;
+    stroke-dasharray: 2000;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 0;
+  }
+}
+
+// *** Image Jozef Kudrna Animation ***
+
+@keyframes clip-path-animation {
+  0% {
+    clip-path: circle(0% at 50% 50%);
+  }
+
+  25% {
+    clip-path: circle(20% at 50% 50%);
+  }
+
+  50% {
+    clip-path: circle(10% at 50% 50%);
+  }
+
+  100% {
+    clip-path: circle(100% at 50% 50%);
+  }
+}
+
+// *** Info Text Animation ***
+@keyframes info-text-anim {
+  to {
+    transform: translateX(105%);
+  }
+}
+
+// *** Pencil FadeInAndMove Animation ***
+@keyframes fadeInAndMove {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-5rem) rotateY(160deg) scale(0);
+  }
+
+  30%,
+  90% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-5rem) rotateY(160deg) scale(1);
+  }
+
+  100% {
+    transform: translateX(-5rem) rotateY(160deg) scale(1);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// *** Projector Light Blik Animation ***
+@keyframes light-blik {
+  0% {
+    opacity: 0.3;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  20% {
+    opacity: 0.3;
+  }
+  30% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 0.3;
+  }
+}

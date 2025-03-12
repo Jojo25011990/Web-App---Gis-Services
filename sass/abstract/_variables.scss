@@ -1,0 +1,56 @@
+// --------------------------------------
+// *** COLORS ***
+// --------------------------------------
+$color-black: #000;
+$color-black-dark: #222;
+$color-black-very-dark: #111;
+
+$color-white: #fff;
+$color-white-light: #f1f1f1;
+
+$color-red-primary: #f2395a;
+$color-blue-primary: #133f96;
+
+$color-gray-light: #ccc;
+$color-gray-very-light: #ddd;
+$color-gray-ultra-light: #eee;
+
+$color-eye-pupil: #534444;
+
+$color-projector-title: #414247;
+
+// --------------------------------------
+// *** SIZES ***
+// --------------------------------------
+// *** map ***
+$font-sizes: (
+  ultra: 25rem,
+  x-large: 5rem,
+  large: 3rem,
+  medium: 2.5rem,
+  s-medium: 2rem,
+  small: 1.8rem,
+  s-small: 1.5rem,
+  xs-small: 1.25rem,
+);
+
+// *** Font Familly ***
+$font-family-primary: 'Roboto', serif;
+$font-family-secondary: Verdana, Geneva, sans-serif;
+$font-family-tertiary: 'Oswald', sans-serif;
+
+// *** function ***
+@function size($size) {
+  @return map-get($map: $font-sizes, $key: $size);
+}
+
+// Example of how to correctly call the mixin
+/*
+button {
+    @include font-settings(large, 900, 120%);
+    // The first value is from the function (it returns the value)
+    // The second and third values are standard mixin parameters/arguments.
+    parameters -> defined in the mixin declaration.
+    arguments -> passed when calling the mixin.
+}
+*/

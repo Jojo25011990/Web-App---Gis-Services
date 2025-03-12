@@ -1,0 +1,178 @@
+@use '../abstract' as *;
+@use './main' as *;
+
+.why__me {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+
+  background-color: $color-black-dark;
+
+  display: none;
+
+  @include dimension-settings(100%, 100%);
+
+  // *** 780px ***
+  @include respon-design(tablet) {
+    @include dimension-settings(100%, auto);
+
+    overflow: hidden;
+
+    margin: 5rem 0;
+    padding: 3rem 0;
+  }
+
+  &.active {
+    z-index: 99;
+    @include flex-settings;
+  }
+
+  //   *** title ***
+  &-title {
+    @extend %big-title;
+
+    //  *** 1275px ***
+    @include respon-design(desktop-medium) {
+      font-size: 25rem;
+    }
+
+    //  *** 1050px ***
+    @include respon-design(desktop) {
+      font-size: 20rem;
+      top: 23rem;
+    }
+
+    //  *** 780px ***
+    @include respon-design(tablet) {
+      font-size: 15.6rem;
+      top: 24rem;
+    }
+
+    //  *** 660px ***
+    @include respon-design(tablet-small) {
+      font-size: 13rem;
+      top: 20rem;
+    }
+
+    // *** 510px ***
+    @include respon-design(mobile-large) {
+      font-size: 10rem;
+      top: 22rem;
+    }
+  }
+  //   *** end of title ***
+}
+
+// *** content box ***
+.content__box {
+  @include flex-settings($direction: column, $gap: 3rem);
+  @include dimension-settings(100%, $max-width: 80rem);
+
+  // *** 780px ***
+  @include respon-design(tablet) {
+    @include dimension-settings(100%, $max-width: 50rem);
+  }
+
+  // *** 660px ***
+  @include respon-design(tablet-small) {
+    margin-top: 10rem;
+  }
+
+  //   *** why me text ***
+  &-text {
+    position: relative;
+
+    color: $color-black-dark;
+    background-color: $color-white-light;
+
+    padding: 2rem;
+    border-radius: 1rem;
+
+    text-align: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    clip-path: circle(1% at 2% 3%);
+
+    animation: why-me 1.5s ease-out 2.25s forwards;
+
+    @include font-settings(small, null, 1.7);
+    @include dimension-settings(100%, $max-width: 60rem);
+
+    // *** 610px ***
+    @include respon-design(mobile-ex-large) {
+      @include font-settings(s-small, null, 1.7);
+      @include dimension-settings(100%, $max-width: 45rem);
+    }
+
+    // *** 510px ***
+    @include respon-design(mobile-large) {
+      @include font-settings(s-small, null, 1.7);
+      @include dimension-settings(100%, $max-width: 40rem);
+    }
+  }
+  //   *** end of why me text ***
+
+  // *** content box btn back ***
+  &-back {
+    @include globalBtnStyles;
+  }
+
+  &-svg {
+    position: relative;
+    top: 5rem;
+    left: -37rem;
+    transform: rotate(120deg) scale(1.5);
+
+    @include dimension-settings(10rem, 10rem);
+
+    //  *** 1050px ***
+    @include respon-design(desktop) {
+      transform: rotate(120deg) scale(1.2);
+    }
+
+    // *** 780px ***
+    @include respon-design(tablet) {
+      left: -31rem;
+
+      transform: rotate(120deg) scale(1);
+    }
+
+    // *** 660px ***
+    @include respon-design(tablet-small) {
+      left: -29rem;
+      top: 5rem;
+      transform: rotate(135deg);
+    }
+
+    // *** 610px ***
+    @include respon-design(mobile-ex-large) {
+      left: -26rem;
+    }
+
+    // *** 510px ***
+    @include respon-design(mobile-large) {
+      left: -24rem;
+    }
+
+    // *** 490px ***
+    @include respon-design(mobile-large) {
+      display: none;
+    }
+  }
+
+  &-path {
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+
+    fill: none;
+
+    stroke: $color-red-primary;
+    stroke-width: 5;
+
+    animation: animate-stroke 2s ease forwards;
+  }
+}
+// *** end of content box ***

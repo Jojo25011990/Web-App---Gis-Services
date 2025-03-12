@@ -1,0 +1,17 @@
+{
+	"name": "webapp---cv",
+	"version": "1.0.0",
+	"description": "My Web App Curriculum Vitae",
+	"license": "ISC",
+	"author": "Jozef Jojo Kudrna",
+	"type": "commonjs",
+	"main": "index.js",
+	"scripts": {
+		"start": "nodemon -e scss -x \"npm run sass\"",
+		"sass": "sass sass/main.scss css/style.css --no-source-map"
+	},
+	"devDependencies": {
+		"nodemon": "^3.1.9",
+		"sass": "^1.85.0"
+	}
+}

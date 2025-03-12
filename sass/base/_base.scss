@@ -1,0 +1,24 @@
+@use '../abstract' as *;
+html {
+  // *** 880px ***
+  @include respon-design(tablet-medium) {
+    font-size: 55%;
+  }
+}
+
+body {
+  position: relative;
+
+  background-color: $color-black-dark;
+
+  font-family: $font-family-primary;
+
+  overflow-x: hidden;
+
+  @include flex-settings(center, null);
+  @include dimension-settings(100%, 100vh, 100vh);
+}
+
+.container {
+  @include dimension-settings(100%, 100%, $max-width: 120rem);
+}

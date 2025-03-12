@@ -1,0 +1,76 @@
+@use '../abstract' as *;
+
+.header {
+  @include dimension-settings(100%);
+  @include flex-settings($gap: 2rem);
+
+  padding-bottom: 4rem;
+
+  // *** title ***
+  &__title {
+    color: $color-white-light;
+
+    text-shadow: 0.1rem 0.1rem 0.2rem $color-white;
+
+    @include font-settings(x-large);
+
+    // *** 610px ***
+    @include respon-design(mobile-ex-large) {
+      @include font-settings(large);
+    }
+
+    // *** 490px ***
+    @include respon-design(mobile) {
+      @include font-settings(medium);
+    }
+  }
+  // *** end of title ***
+
+  // *** envelope ***
+  &__envelope {
+    border-top: 2.5rem solid $color-gray-ultra-light;
+    border-right: 5rem solid $color-gray-very-light;
+    border-bottom: 2.5rem solid $color-gray-light;
+    border-left: 5rem solid $color-gray-light;
+
+    @include dimension-settings(0, 0);
+
+    &-heart {
+      position: relative;
+
+      background-color: $color-red-primary;
+
+      transform: translate(-50%, -50%) rotate(45deg) scale(1);
+      animation: heartbeat 1.2s linear infinite;
+
+      @include dimension-settings(2rem, 2rem);
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        background-color: $color-red-primary;
+        border-radius: 50%;
+        transform: translateX(-50%);
+
+        @include dimension-settings(100%, 100%);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        background-color: $color-red-primary;
+        border-radius: 50%;
+        transform: translateY(-50%);
+
+        @include dimension-settings(100%, 100%);
+      }
+    }
+  }
+  // *** end of envelope ***
+}
