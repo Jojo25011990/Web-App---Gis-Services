@@ -25,10 +25,8 @@ const authorName = document.querySelector(
 const aboutMeName = document.querySelector('.about__me-name');
 
 // *** Pencil + Screen Width For Responsive Design ***
-// const pencil = document.querySelector('.about__me-pencil');
 const pencil = document.querySelector('.paper__pencil');
-// const screenWidth = window.innerWidth;
-let screenWidth = window.innerWidth;
+const screenWidth = window.innerWidth;
 
 // *** Gsap Timelines, Eyes + Pencil ***
 const tlEyes = gsap.timeline({ paused: true });
@@ -84,9 +82,9 @@ btnsBack.forEach(btnBack => {
 // 780 <, duration 2
 // 660 & 490 < 2.5
 
-if (window.innerWidth > 880) {
+if (screenWidth > 880) {
   durationValue = 1;
-} else if (window.innerWidth > 780 && window.innerWidth <= 880) {
+} else if (screenWidth > 780 && screenWidth <= 880) {
   durationValue = 1.5;
 } else {
   durationValue = 2.5;
