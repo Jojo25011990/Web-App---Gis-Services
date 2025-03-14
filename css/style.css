@@ -1016,15 +1016,6 @@ body {
     padding-top: 20rem;
   }
 }
-@media (max-width: 490px) {
-  .highlight__container {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    padding-top: 0;
-    margin-top: 0;
-  }
-}
 .highlight__eyes-box {
   position: relative;
   width: 100%;

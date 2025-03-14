@@ -4,7 +4,7 @@
 
 - Css Art
 - Gsap & Keyframes ( css / scss ) Animations and Effects
-- Fully Reponsive
+- Fully Responsive
 
 # Features
 
